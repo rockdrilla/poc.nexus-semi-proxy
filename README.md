@@ -29,8 +29,6 @@ cons:
 
   - setup repositories for each distro/suite you willing to host/proxy:
 
-    **NB**: suites like `${suite}-updates` and so on must be set separately
-
     - hosted raw: `raw-lists-${distro}-${suite}`
     - hosted apt: `apt-${distro}-${suite}`
 
@@ -38,6 +36,8 @@ cons:
 
     - hosted raw: `raw-lists-debian-bookworm`
     - hosted apt: `apt-debian-bookworm`
+
+    **NB**: suites like `bookworm-updates` (and so on) must be set separately
 
   - sync APT repo lists from upstream archive/mirror via [`sync-lists.sh`](sync-lists.sh):
 
