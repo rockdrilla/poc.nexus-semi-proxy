@@ -46,6 +46,9 @@ cons:
 
     `sync-lists.sh debian bookworm`
 
+    **NB**: suites like `bookworm-updates` (and so on) must be synced separately
+
+    `sync-lists.sh debian bookworm-updates`
 
   - upload selected APT packages to `apt-${distro}-${suite}` repositories
 
@@ -63,3 +66,13 @@ cons:
     e.g. for Debian 12 "Bookworm":
 
     `deb https://apt.svc.domain.com/debian/bookworm bookworm main`
+
+    **NB**: suites like `bookworm-updates` (and so on) must be specified in that way:
+
+    `deb https://apt.svc.domain.com/debian/bookworm-updates bookworm-updates main`
+
+    In case of configuration error like this:
+
+    `deb https://apt.svc.domain.com/debian/bookworm bookworm-updates main`
+
+    `apt-nexus-redirector` will respond with HTTP 400 and set header `X-Location-Proposal` with proposed location.
