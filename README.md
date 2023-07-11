@@ -4,7 +4,7 @@ restricted APT semi-proxy repository via Sonatype Nexus
 
 - store (upstream) package lists in separate repository (with no modification)
 - store allowed/approved packages in separate repository
-- setup (two) HTTP(s) redirector services
+- single HTTP(s) redirector service
 
 pros:
 
@@ -20,8 +20,7 @@ cons:
 ## considerations
 
 - existing Sonatype Nexus instance/cluster is available at `https://nexus.svc.domain.com`
-- "apt-nexus-redirector" will be available at `https://apt-nexus-redirector.svc.domain.com`
-- "nginx-apt" will be available at `https://apt.svc.domain.com`
+- "apt-nexus-redirector" will be available at `https://apt.svc.domain.com`
 
 ## how-to
 
@@ -56,12 +55,6 @@ cons:
 
   - build container image with [Dockerfile](apt-nexus-redirector/Dockerfile)
   - deploy container image with "apt-nexus-redirector"
-
-- `nginx-apt`:
-
-  - deploy nginx with [config](nginx/default.conf):
-
-    NB: override/bind-mount `/etc/nginx/conf.d/default.conf` from image with above config.
 
 - target setup:
 
