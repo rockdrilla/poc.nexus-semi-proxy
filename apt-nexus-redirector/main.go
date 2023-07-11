@@ -76,7 +76,7 @@ func routeDists(c *fiber.Ctx) error {
 
 		var _uri fasthttp.URI
 		uri.CopyTo(&_uri)
-		_uri.SetPath(fmt.Sprintf("/%s/%s/%s", distro, suite, distPath))
+		_uri.SetPath(fmt.Sprintf("/%s/%s/dists/%s", distro, suite, distPath))
 
 		origUri := uri.String()
 		newUri := _uri.String()
